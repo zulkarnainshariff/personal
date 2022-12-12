@@ -72,15 +72,13 @@ const Main: FC = () => {
 						<div className="innerContainer">
 							
 							<div className="contentPanel">
-								<div className="content">{contents[activePage]}</div>
+								<div data-testid="content" className="content">{contents[activePage]}</div>
 							</div>
 							<div className="imagePanel">
 								<img src={pic} alt="profile" className="image" />
 							</div>
 						</div>
-					{/* 	<div className="menuContainer">
-							<Menu onShowProjects={() => setShowProjects(true)} />
-						</div> */}
+					
 					</div>
 				</div>
 			</Fade>

@@ -27,7 +27,7 @@ export const SoftwareDeveloper: FC = () => {
 	const { history, msg1, msg2, msg3, msg4 } = screenData.softwaredeveloper
 
 	return (
-		<div className="screens">
+		<div className="screens" data-testid="softwareDeveloperScreen">
 			<div className="title">
 				<BsCodeSlash style={{ marginRight: "10px" }} />
 				<div>Software Developer</div>

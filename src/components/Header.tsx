@@ -13,6 +13,7 @@ interface LinkProps {
 	label: string
 	index: number
 	activePage: number
+	testid: string
 	onPageChange: (page: number) => void
 }
 
@@ -24,9 +25,10 @@ interface HeaderProps {
 interface BlurpProps {
 	label: string
 	index: number
+	testid: string
 }
 
-const Link = ({ label, index, activePage, onPageChange }: LinkProps) => {
+const Link = ({ label, index, activePage, onPageChange, testid }: LinkProps) => {
 	const style = {
 		item: {
 			...activeSelectionColor(index, activePage),
@@ -34,7 +36,7 @@ const Link = ({ label, index, activePage, onPageChange }: LinkProps) => {
 	}
 	return (
 		<div className="link">
-			<div className="item" style={style.item} onClick={() => onPageChange(index)}>
+			<div className="item" style={style.item} onClick={() => onPageChange(index)} data-testid={testid}>
 				<Fade in={activePage === index}>
 					<div className="rightArrow">
 						<BiRightArrow size={5} />
@@ -58,8 +60,8 @@ const Header = ({ activePage, onPageChange }: HeaderProps) => {
 		},
 	}
 
-	const Blurp = ({ label, index }: BlurpProps) => (
-		<Link label={label} index={index} activePage={activePage} onPageChange={() => onPageChange && onPageChange(index)} />
+	const Blurp = ({ label, index, testid }: BlurpProps) => (
+		<Link label={label} index={index} activePage={activePage} onPageChange={() => onPageChange && onPageChange(index)} testid={testid} />
 	)
 
 	return (
@@ -72,8 +74,8 @@ const Header = ({ activePage, onPageChange }: HeaderProps) => {
 			</div>
 
 			<div>
-				<Blurp label="Software Developer" index={1} />
-				<Blurp label="Musician" index={2} />
+				<Blurp label="Software Developer" index={1} testid="softwaredeveloper" />
+				<Blurp label="Musician" index={2} testid="musician" />
 			</div>
 		</div>
 	)

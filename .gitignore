@@ -23,3 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 deploy
 mediaQueries.scss
+App.test.tsx
