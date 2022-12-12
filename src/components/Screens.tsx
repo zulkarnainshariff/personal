@@ -1,14 +1,14 @@
-import { FC } from "react"
+import { FC, Fragment } from "react"
 
 // react icons
 import { BsCodeSlash } from "react-icons/bs"
 import { IoIosMusicalNotes } from "react-icons/io"
 import { TbUserCircle } from "react-icons/tb"
 
+import { screenData } from "../utils/constants"
+
 export const AboutMe: FC = () => {
-	const msg1 = "I spent 21 years flying as a Cabin Crew for Singapore Airlines, with the last 11 years as a Leading Steward"
-	const msg2 =
-		"I had been programming for more than 30 years, and among the early members of Singapore Linux Users Group back in 1993 when I was working as a Computer Programmer, working on SCO Unix machines"
+	const { msg1, msg2 } = screenData.aboutme
 
 	return (
 		<div className="screens">
@@ -24,11 +24,8 @@ export const AboutMe: FC = () => {
 }
 
 export const SoftwareDeveloper: FC = () => {
-	const msg1 = "Over 30 years of programming experience"
-	const msg2 =
-		"The latest project that I worked on, was for a medical teleconsultation app, which allows individual clinics to embed telehealth capabilities to their own websites."
-	const msg3 = "It comes with a scheduling system, and an internal, secured, non intrusive messaging system"
-	const msg4 = "Click on the Projects link to find out more!"
+	const { history, msg1, msg2, msg3, msg4 } = screenData.softwaredeveloper
+
 	return (
 		<div className="screens">
 			<div className="title">
@@ -36,6 +33,26 @@ export const SoftwareDeveloper: FC = () => {
 				<div>Software Developer</div>
 			</div>
 			<div>{msg1}</div>
+			<div className="history glass">
+				{history.map((i, index) => {
+					return (
+						<Fragment key={i.period}>
+							<div style={{ width: "100%" }}>{i.period}</div>
+							<div style={{ width: "100%" }}>
+								<div>
+									<div style={{ fontWeight: "bold" }}>Systems</div>
+									<div>{i.systems}</div>
+								</div>
+
+								<div style={{ marginTop: "10px", marginBottom: index === history.length - 1 ? 0 : "10px" }}>
+									<div style={{ fontWeight: "bold" }}>Languages</div>
+									<div>{i.languages}</div>
+								</div>
+							</div>
+						</Fragment>
+					)
+				})}
+			</div>
 			<br />
 			<div>{msg2}</div>
 			<br />
@@ -47,10 +64,7 @@ export const SoftwareDeveloper: FC = () => {
 }
 
 export const Musician: FC = () => {
-	const msg1 = "I am a Ska drummer and had been in the underground scene in Singapore for many years"
-	const msg2 = "I was a core member of the Cabin Crew Music Society with Singapore Airlines"
-	const msg3 = "I am open to most genres, from Ska & Reggae, to Rock and Metal, from Less Than Jake to Metallica! "
-	const msg4 = "So if you are in Tassie and wanting to jam, hit me up!"
+	const { msg1, msg2, msg3, msg4 } = screenData.musician
 
 	return (
 		<div className="screens">

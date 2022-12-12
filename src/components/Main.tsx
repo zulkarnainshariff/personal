@@ -63,9 +63,14 @@ const Main: FC = () => {
 			<Fade in={!showSplash}>
 				<div className="backdrop">
 					<Header activePage={activePage} onPageChange={activePageChange} />
+					<div className="menuContainer">
+							<Menu onShowProjects={() => setShowProjects(true)} />
+						</div>
 
 					<div className="innerBody">
+						
 						<div className="innerContainer">
+							
 							<div className="contentPanel">
 								<div className="content">{contents[activePage]}</div>
 							</div>
@@ -73,9 +78,9 @@ const Main: FC = () => {
 								<img src={pic} alt="profile" className="image" />
 							</div>
 						</div>
-						<div className="menuContainer">
+					{/* 	<div className="menuContainer">
 							<Menu onShowProjects={() => setShowProjects(true)} />
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</Fade>
